@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>회원가입</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <div class="head-text"><a href="/">즐 기 록</a></div>
+            <div class="nav">
+                <ul class="nav-list">
+                    <li><a href="/">일기장</a></li>
+                    <li><a href="/">캘린더</a></li>
+                    <li><a href="/login">로그인</a></li>
+                    <li><a href="/signup">회원가입</a></li>
+                </ul>
+            </div>
+            <div class="menu-bar" onclick="button()">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+
+        </header>
+        <div class="menu-list">
+            <ul>
+                <li><a href="#">일기장</a></li>
+                <li><a href="#">캘린더</a></li>
+                <li><a href="/login">로그인</a></li>
+                <li><a href="/signup">회원가입</a></li>
+            </ul>
+        </div>
+        <main>
+            <div class="login">
+                <h1>회원가입</h1>
+                <form class="login-form" method="get" onsubmit="return false;" id="signup-form">
+                    <div class="input-id">
+                        <input type="text" name="username" id="id" placeholder=" 아이디">
+                    </div>
+                    <div class="input-pw">
+                        <input type="password" name="password" id="pw" placeholder=" 비밀번호">
+                    </div class="login-button">
+                    <div class="input-pw">
+                        <input type="password" name="passwordCheck" id="pw-check" placeholder=" 비밀번호 확인">
+                    </div class="login-button">
+                    <div><button class="send-button"> 회원가입 </button></div>
+                </form>
+            </div>
+
+        </main>
+        <footer>
+            <div class="footer-text">Copyright © 2023 All Right Reserved By eun</div>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        const sendButton = document.querySelector(".send-button");
+        sendButton.addEventListener('click', function () {
+            const form = document.getElementById('signup-form');
+            const idInput = document.getElementById('id');
+            const pwInput = document.getElementById('pw');
+            const pwCheckInput = document.getElementById('pw-check');
+
+            const idValue = idInput.value;
+            const pwValue = pwInput.value;
+            const pwCheckValue = pwCheckInput.value;
+
+            if (idValue.trim() === '' ) {
+                alert('아이디를 입력해주세요.');
+                return;
+            }
+            
+            if (pwValue === '') {
+                alert('비밀번호를 입력해주세요.');
+                return;
+            }
+
+            if (pwValue !== pwCheckValue) {
+                alert('비밀번호가 일치하지 않습니다.');
+                return;
+            }
+            
+            form.action = "/signup/";
+            form.method = "POST";
+            form.submit();
+            form.reset();
+            
+            // 폼 리셋
+        })
+
+
+    </script>
+</body>
+
+</html>

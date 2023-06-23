@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/x-icon" href="images/favicon.png">
+    <title>home</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <div class="head-text"><a href="/">즐 기 록</a></div>
+            <div class="nav">
+                <ul class="nav-list">
+                    <li><a href="/diary">일기장</a></li>
+                    <li><a href="/calendar">캘린더</a></li>
+                    <% if (!loggedIn) { %> <!-- 사용자가 로그인하지 않은 경우 체크 -->
+                        <li><a href="/login">로그인</a></li>
+                        <li><a href="/signup">회원가입</a></li>
+                        <% console.log("logg");} else { %>
+                            <li><a href="/todolist">투두리스트</a></li> 
+                            <li><a href="/logout">로그아웃</a></li>
+                            <% } %>
+                </ul>
+            </div>
+            <div class="menu-bar" onclick="button()">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+
+        </header>
+        <div class="menu-list">
+            <ul>
+                <li><a href="/diary">일기장</a></li>
+                <li><a href="/calendar">캘린더</a></li>
+                <% if (!loggedIn) { %> <!-- 사용자가 로그인하지 않은 경우 체크 -->
+                    <li><a href="/login">로그인</a></li>
+                    <li><a href="/signup">회원가입</a></li>
+                    <% console.log("logg");} else { %>
+                        <li><a href="/todolist">투두리스트</a></li> 
+                        <li><a href="/logout">로그아웃</a></li>
+                        <% } %>
+            </ul>
+        </div>
+        <main>
+            <div class="write">
+                    <div><h2 style="margin-top: 50px;"><%=diary.id%>번째 일기</h2></div>
+                    <div class="diary-wrap">
+                        <div class="diary-title"> <%=diary.title%></div>
+                        <div class="diary-content"><div><%=diary.content%></div></div>
+                        
+                    </div>
+                    <div><button class="send-button" style="margin-bottom: 100px;"> 저장 </button></div>
+                    
+
+                
+            </div>
+            <div class="footer">
+                <div class="footer-text">Copyright © 2023 All Right Reserved By eun</div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        const sendButton = document.querySelector(".send-button");
+        sendButton.addEventListener('click', function () {
+            const form = document.getElementById('write-form');
+            form.action = "/write/";
+            form.method = "POST";
+            form.submit();
+            form.reset();
+        })
+    </script>
+</body>
+
+</html>

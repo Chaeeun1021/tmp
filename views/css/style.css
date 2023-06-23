@@ -1,0 +1,492 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poor+Story&display=swap');
+* {
+    /*font-family: 'Gowun Dodum', sans-serif;*/
+    font-family: 'Jua', sans-serif;
+    font-family: 'Poor Story', cursive;
+    list-style: none;
+    text-decoration: none;
+    border-collapse: collapse;
+    margin: 0px;
+    padding: 0px;
+    color: #000;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    
+}
+main {
+    overflow-y: auto;
+}
+.contents-bold {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+.contents-light {
+    font-size: 13px;
+    font-weight: lighter;
+    margin: auto;
+    width: 150px;
+    letter-spacing: -1;
+    margin-top: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
+.wrapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+header {
+    flex:1.2;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    justify-content: flex-start;
+    border-bottom: 1px solid #e1e1e1;
+}
+.head-text {
+    font-size: 23px;
+    flex: 3;
+    margin-left: 1rem;
+    font-weight: bold;
+    
+}
+.nav {
+    /* background: saddlebrown; */
+    font-size: 18px;
+    flex: 8;
+    display: flex;
+    justify-content: flex-end;
+    
+}
+.nav-list {
+    display: flex;
+}
+.nav-list > li {
+    /* background: blue; */
+    margin-right: 4rem;
+}
+main {
+    flex:12;
+    /* background: orange; */
+
+}
+
+.main-text0 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow: auto;
+    background: #ffeebbd9;
+
+    /*background: rgba(101, 43, 200, 0.095);*/
+    padding-bottom: 50px;
+    border: none;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    /* background: pink; */
+}
+.main-text0 > h1 {
+    padding-top: 1.5rem;
+    text-align: center;
+    /* background: skyblue; */
+}
+.main-text0 > .contents1 {
+    text-align: center;
+    margin-top: 0.1rem;
+}
+.icons {
+    display:flex;
+    height: 300px;
+    width: 70%;
+    margin: auto;
+}
+.icons > ul {
+    display: flex;
+}
+.icons > li {
+    height: 240px;
+    flex:1;
+    margin: auto;
+    text-align: center;
+    border-radius: 4px;
+    border: none;
+    border: 1px solid #ededed;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    background: white;
+}
+.icons > li > .icon-img {
+    margin-top: 45px;
+}
+.icons > li:not(:last-child) {
+    margin-right: 30px;
+}
+.icon-img > img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 3px;
+}
+
+.main-text1 {
+    display: flex;
+    flex-direction: column;
+    width:100%;
+    text-align: center;
+    padding: 150px;
+}
+.main-text1 h1 {
+    margin: 10px;
+}
+.main-text1 .contents2 {
+    margin-top: 15px;
+}
+.main-text1 div {
+    justify-content: center;
+    align-items: center;
+}
+.main-text1 button {
+    margin-top: 30px;
+    width:20%;
+    background: #A7ECEE;
+    border: none;
+    
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px;
+    background: #99DBF5;
+}
+.footer-text {
+    color:rgb(255, 255, 255);
+    text-align: center;
+}
+
+.animation-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 180px;
+    margin-bottom: 180px;
+}
+.animation {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0;
+    animation-name: typing;
+    animation-duration: 2s;
+    animation-timing-function: steps(7, end);
+    animation-fill-mode: forwards;
+}
+
+@keyframes typing {
+    0% {
+        opacity: 0;
+    }
+
+    14% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+
+
+/* 메뉴바 */
+
+.menu-bar {
+    display: none;
+    position: relative;
+    top: 10px;
+}
+.menu-bar:hover {
+    cursor: pointer;
+}
+.menu-bar div {
+    background: black;
+    width: 40px;
+    height: 5px;
+    margin: 5px;
+    transition: all 0.5s;
+    border-radius: 20%;
+}
+.toggle .line1 {
+    transform: rotate(-45deg) translate(-8px, 6px);
+}
+.toggle .line2 {
+    opacity: 0;
+}
+.toggle .line3 {
+    transform: rotate(45deg) translate(-8px, -6px);
+}
+
+.menu-list {
+    display: none;
+}
+.menu-list ul {
+    float: right;
+    border: none;
+    border-radius: 10%;
+    width: 100%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    
+}
+.menu-list li {
+    background: rgb(255, 255, 255);
+    transition: background-color 0.1s;
+    padding: 20px;
+    border-bottom: 1px solid #e1e1e1;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.menu-list li:hover {
+    cursor: pointer;
+    background-color: rgb(215, 215, 215);
+}
+
+@media only screen and (max-width: 768px) {
+
+    .nav {
+        display: none;
+    }
+
+    .menu-bar {
+        display: block;
+        margin-right: 1rem;
+        margin-bottom: 20px;
+    }
+    .main-text0 {
+        margin-top: 20px;
+        padding-bottom: 500px;
+    }
+    .contents1 {
+        margin-bottom: 20px;
+    }
+    .icons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .icons > li {
+        width: 60%;
+        display: flex;
+        height: 500px;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin: 20px; /* 필요한 여백 조정 */
+        
+      }
+    .contents-bold {
+        margin-top: 3px;
+        margin-bottom: 5px;
+    }
+    .contents-light {
+        margin-bottom: 25px;
+        flex-wrap: no-wrap;
+    }
+  .main-text1 button {
+    width: 100%;
+  }
+  .main-text1 .contents2 {
+    margin-top: 15px;
+  }
+    
+}
+.login {
+    display: flex;
+    flex-direction: column;
+}
+.login > h1 {
+    text-align: center;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 100px;
+}
+
+.login-form {
+    width: 100%;
+    text-align: center;
+}
+.login-form > div {
+    margin-bottom: 2rem;
+    height: 70px;
+}
+input,button {
+    height: 50px;
+    width: 300px;
+    border: 1px solid #e6e6e6;
+}
+button {
+    background-color:rgb(91, 187, 255);
+    transition: background-color 0.1s;
+}
+button:hover {
+    cursor: pointer;
+    background-color: rgb(76, 159, 218);
+}
+.login-form > div > a {
+    text-decoration:underline;
+}
+.gallery {
+    display:flex;
+    flex-wrap: wrap;
+    width: 70%;
+    margin: auto;
+    justify-content:center;
+}
+
+.gallery > ul {
+    display: flex;
+}
+.gallery > li {
+    height: 200px;
+    width: 200px;
+    text-align: center;
+    border-radius: 10px;
+    border: none;
+    border: 1px solid #ededed;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    background: white;
+    /* 4개씩 정렬하므로 각 항목의 너비는 25%로 설정 */
+    padding: 10px;
+    box-sizing: border-box;
+    flex: 0 0 calc(25% - 30px);
+    margin: 15px;
+    word-wrap: break-word;
+}
+
+.gallery > li:not(:nth-child(3n)) {
+     /* 4개씩 정렬하므로 각 항목의 너비는 25%로 설정 */
+  
+  box-sizing: border-box;
+}
+
+.diary-banner {
+   padding: 10px;
+}
+.write-btn-wrap {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+    margin-right: 20px;
+}
+.write-btn {
+    border-radius: 5px;
+    width: 10rem;
+    background-color: #A7ECEE;
+    border: 1px solid #ededed;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.1s;
+}
+
+.write-btn:hover {
+    cursor: pointer;
+    background-color: rgb(91, 187, 255);
+}
+
+.write {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.write-form > div {
+    margin: 30px;
+}
+.write-form input {
+    width: 300px;
+    
+}
+.write-form textarea {
+    width: 300px;
+    height: 20.25em;
+    border: 1px solid #ededed;
+    resize: none;
+}
+.diary-item:hover {
+    cursor: pointer;
+}
+
+.diary-wrap {
+    padding: 10px;
+    border: 1px solid #ededed;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+.diary-title {
+    font-weight: bold;
+    font-size: 20px;
+   text-align: start;
+    padding: 15px;
+    border-bottom: 1px solid #ededed;
+}
+.diary-content {
+    font-size: 18px;
+    text-align: start;
+    padding: 15px;
+}
+.add-todolist {
+    display: flex;
+    justify-content: center;
+}
+.add-todolist input {
+    margin-right: 50px;
+}
+.add-todolist button {
+    width: 100px;
+}
+input[type="checkbox"] {
+    /* 원하는 스타일을 적용하세요 */
+    width: 20px;
+  } 
+  .todo-wrap {
+    display: flex;
+    padding: 10px;
+    border: 1px solid #ededed;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    width: 80%;
+    margin: auto;
+    flex-direction: column;
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
+.todo-wrap div {
+    display: flex;
+    padding: 10px;
+    font-size: 20px;
+    line-height: 50px;;
+   
+}
+.todo-wrap div:not(:last-child) {
+    border-bottom: 1px solid #e5e5e5;
+}
+.todo-wrap input[type="checkbox"] {
+    position: relative;
+    margin-right: 20px;
+  }

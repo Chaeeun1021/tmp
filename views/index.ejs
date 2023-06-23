@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/x-icon" href="images/favicon.png">
+    <title>home</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <div class="head-text"><a href="/">즐 기 록</a></div>
+            <div class="nav">
+                <ul class="nav-list">
+                    <li><a href="/diary">일기장</a></li>
+
+                    <% if (!loggedIn) { %> <!-- 사용자가 로그인하지 않은 경우 체크 -->
+                        <li><a href="/login">로그인</a></li>
+                        <li><a href="/signup">회원가입</a></li>
+                    <% console.log("logg");} else { %>
+                        <li><a href="/todolist">투두리스트</a></li> 
+                        <li><a href="/logout">로그아웃</a></li> <% } %>
+                    </ul>
+            </div>
+            <div class="menu-bar" onclick="button()">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+
+        </header>
+        <div class="menu-list">
+            <ul>
+                <li><a href="/diary">일기장</a></li>
+                
+                <% if (!loggedIn) { %> <!-- 사용자가 로그인하지 않은 경우 체크 -->
+                    <li><a href="/login">로그인</a></li>
+                    <li><a href="/signup">회원가입</a></li>
+                <% console.log("logg");} else { %>
+                    <li><a href="/todolist">투두리스트</a></li> 
+                    <li><a href="/logout">로그아웃</a></li> <% } %>
+            </ul>
+        </div>
+        <main>
+            <div class="main-banner">
+                <div class="animation-wrap">
+                    <div class="animation"> <% if(!loggedIn) { %>일상을 함께하는 즐기록 <% } %> <% if(loggedIn) { %> 반가워요, <%=loggedIn%>님! <% } %></div>
+                </div>
+            </div>
+            <div class="main-text0">
+                <h1>소개</h1>
+                <div class="contents1">즐거운 기록을 함께하는 서비스</div>
+                <ul class="icons">
+                    <li>
+                        <div class="icon-img">
+                            <img src="images/icon0.png" alt="icon0">
+                        </div>
+                        <div class="contents-bold">하루 일기</div>
+                        <div class="contents-light">하루동안 있었던 일들을 <br>정리하고 기록해보세요.</div>
+                    </li>
+                    <li>
+                        <div class="icon-img">
+                            <img src="images/icon1.png" alt="icon0">
+                        </div>
+                        <div class="contents-bold">할 일</div>
+                        <div class="contents-light">해야 할 일들을 정리하고 <br> 손 쉽게 찾아보세요. </div>
+                    </li>
+                    <li>
+                        <div class="icon-img">
+                            <img src="images/icon2.png" alt="icon0">
+                        </div>
+                        <div class="contents-bold">일정 관리</div>
+                        <div class="contents-light">중요한 일정들을 <br> 잊지 않도록 기록하세요. </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="main-text1">
+                <h2><% if(!loggedIn) { %> 시작하기 <% } else { %> 즐기록<% }%></h2>
+                <div class="contents2">즐거운 기록을 함께하는 서비스</div>
+                <% if(!loggedIn) { %>
+                    <div><button class="signup-btn" onclick="location.href='/signup'">회원가입</button></div> <% } %>
+                <% if(loggedIn) { %>
+                    <div><button class="mypage-btn" onclick="location.href='/mypage'">마이페이지</button></div> <% } %>
+            </div>
+            <div class="footer">
+                <div class="footer-text">Copyright © 2023 All Right Reserved By eun</div>
+            </div>
+        </main>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

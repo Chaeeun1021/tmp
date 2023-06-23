@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/x-icon" href="images/favicon.png">
+    <title>home</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <div class="head-text"><a href="/">즐 기 록</a></div>
+            <div class="nav">
+                <ul class="nav-list">
+                    <li><a href="/diary">일기장</a></li>
+                    <li><a href="/calendar">캘린더</a></li>
+                    <% if (!loggedIn) { %> <!-- 사용자가 로그인하지 않은 경우 체크 -->
+                        <li><a href="/login">로그인</a></li>
+                        <li><a href="/signup">회원가입</a></li>
+                        <% console.log("logg");} else { %>
+                            <li><a href="/todolist">투두리스트</a></li> 
+                            <li><a href="/logout">로그아웃</a></li>
+                            <% } %>
+                </ul>
+            </div>
+            <div class="menu-bar" onclick="button()">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+
+        </header>
+        <div class="menu-list">
+            <ul>
+                <li><a href="/diary">일기장</a></li>
+                <li><a href="/calendar">캘린더</a></li>
+                <% if (!loggedIn) { %> <!-- 사용자가 로그인하지 않은 경우 체크 -->
+                    <li><a href="/login">로그인</a></li>
+                    <li><a href="/signup">회원가입</a></li>
+                    <% console.log("logg");} else { %>
+                        <li><a href="/todolist">투두리스트</a></li> 
+                        <li><a href="/logout">로그아웃</a></li>
+                        <% } %>
+            </ul>
+        </div>
+        <main>
+            <div class="write">
+                <form class="write-form" method="get" onsubmit="return false;" id="write-form">
+                    <div>자유롭게 작성해보세요!</div>
+                    <div><input type="text" id="title" name="title" placeholder="제목"></div>
+                    <div><textarea placeholder="내용" id="contents" name="contents" cols="30" rows="10"></textarea></div>
+                    <div><button class="send-button"> 저장 </button></div>
+                </form>
+                
+            </div>
+            <div class="footer">
+                <div class="footer-text">Copyright © 2023 All Right Reserved By eun</div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        const sendButton = document.querySelector(".send-button");
+        sendButton.addEventListener('click', function () {
+            const title = document.getElementById('title');
+            const contents = document.getElementById('contents');
+            const titleValue = title.value;
+            const contentsValue = contents.value;
+            
+            if (titleValue.trim() === '' || contentsValue.trim() === '') {
+                alert('내용을 입력해주세요.');
+                return;
+            }
+            form.action = "/write/";
+            form.method = "POST";
+            form.submit();
+            form.reset();
+        })
+    </script>
+</body>
+
+</html>

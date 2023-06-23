@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/x-icon" href="images/favicon.png">
+    <title>home</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <div class="head-text"><a href="/">즐 기 록</a></div>
+            <div class="nav">
+                <ul class="nav-list">
+                    <li><a href="/diary">일기장</a></li>
+                    <% if (!loggedIn) { %> <!-- 사용자가 로그인하지 않은 경우 체크 -->
+                        <li><a href="/login">로그인</a></li>
+                        <li><a href="/signup">회원가입</a></li>
+                    <% console.log("logg");} else { %>
+                        <li><a href="/todolist">투두리스트</a></li> 
+                        <li><a href="/logout">로그아웃</a></li> <% } %>
+                    </ul>
+            </div>
+            <div class="menu-bar" onclick="button()">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+
+        </header>
+        <div class="menu-list">
+            <ul>
+                <li><a href="/diary">일기장</a></li>
+                <% if (!loggedIn) { %> <!-- 사용자가 로그인하지 않은 경우 체크 -->
+                    <li><a href="/login">로그인</a></li>
+                    <li><a href="/signup">회원가입</a></li>
+                <% console.log("logg");} else { %>
+                    <li><a href="/todolist">투두리스트</a></li> 
+                    <li><a href="/logout">로그아웃</a></li> <% } %>
+            </ul>
+        </div>
+        <main>
+            <div class="main-banner diary-banner">
+                <div class="animation-wrap" style="margin-top: 100px; margin-bottom: 50px;">
+                    <div class="animation"> <% if(!loggedIn) { %>일상을 함께하는 즐기록 <% } %> <% if(loggedIn) { %> <%=loggedIn%>님의 일기장 <% } %></div>
+                </div>
+                <div class="write-btn-wrap"><button class="write-btn" onclick="location.href='/write'" style="font-size: 16px;">일기 작성</button></div>
+            </div>
+
+            <div class="main-text0" style="padding-bottom: 130px; background: #FFFAD7;">
+                <h1 style="margin-top: 30px; margin-bottom: 30px;">목록</h1>     
+                <div class="contents1"></div>
+                <div class="gallery-wrap">
+                    <ul class="gallery">
+                        <% let i=1; 
+
+                        if(!diaries.length) { %>
+                            <li>
+                                <div class="contents-light" style="margin-top: 70px; font-size: 16px;">상단의 버튼을 눌러 <br>일기를 작성해보세요.</div> 
+                            </li>
+                        <% }  %>
+                        <% for (diaries of diaries) { 
+
+                            %>
+                            <li class= "diary-item" onclick="location.href='/viewdiary?variable=<%=diaries.id%>'">
+                                <div class="contents-bold" style="color:rgb(0, 0, 0);">#<%= i %>번째 일기</div>
+                                <div class="contents-light" style="margin-top: 30px; font-size: larger; border-bottom: 1px solid #d7d7d7;"><%= diaries.title %></div>
+                                <div class="contents-light"><%= diaries.content %></div> 
+                            </li>
+                        <% i++;} %>
+                    </ul>
+
+                </div>
+            </div>
+                <div class="footer">
+                    <div class="footer-text">Copyright © 2023 All Right Reserved By eun</div>
+                </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
