@@ -66,6 +66,7 @@
     <script>
         const sendButton = document.querySelector(".send-button");
         sendButton.addEventListener('click', function () {
+            const form = document.getElementById('write-form');
             const title = document.getElementById('title');
             const contents = document.getElementById('contents');
             const titleValue = title.value;
